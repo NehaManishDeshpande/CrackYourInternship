@@ -2,16 +2,20 @@ class Solution {
 public:
     int findDuplicate(vector<int>& arr) {
         int n = arr.size();
-        sort(arr.begin(), arr.end());
-        int res = 0;
-        for(int i = 0; i < n - 1; i++)
+        int i = 0;
+        while(i < n)
         {
-                if(arr[i] == arr[i + 1])
-                {
-                    res = arr[i];
-                    return res;
-                }
+            int cidx = arr[i];
+            if(arr[cidx] == arr[i])
+            {
+                return arr[i];
+            }
+            else
+            {
+                swap(arr[cidx], arr[i]);
+            }
         }
-        return 0;
+
+        return 100;
     }
 };
